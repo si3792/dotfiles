@@ -218,9 +218,10 @@ call plug#begin('~/.vim/plugged')
     let g:Lf_WindowPosition = 'popup'
     let g:Lf_PreviewInPopup = 1
     nmap ,f :Leaderf file<cr>
-    let g:Lf_DefaultMode = 'NameOnly'
+    nmap <c-p> :Leaderf file<cr>
+    nmap <c-o> :Leaderf mru<cr>
 
-    let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+    let g:Lf_DefaultMode = 'NameOnly'
 
     Plug 'dyng/ctrlsf.vim'
     let g:ctrlsf_ackprg = 'rg'
@@ -252,11 +253,11 @@ call plug#begin('~/.vim/plugged')
 
     let g:ragtag_global_maps = 1
 
-    Plug 'kien/ctrlp.vim'
-    let g:ctrlp_max_files=0
-    let g:ctrlp_show_hidden = 1
-    let g:ctrlp_working_path_mode = 'rw'
-    let g:ctrlp_by_filename = 1
+    "Plug 'kien/ctrlp.vim'
+    "let g:ctrlp_max_files=0
+    "let g:ctrlp_show_hidden = 1
+    "let g:ctrlp_working_path_mode = 'rw'
+    "let g:ctrlp_by_filename = 1
 
     set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
     set laststatus=2
@@ -327,18 +328,18 @@ call plug#end()
     set grepprg=ag\ --nogroup\ --nocolor
     let g:ackprg = 'ag --vimgrep'
 
-     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+     "" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
+    "" ag is fast enough that CtrlP doesn't need to cache
+    "let g:ctrlp_use_caching = 0
   endif
 
   if executable ('rg')
     set grepprg=rg\ --color=never
     "set grepformat=%f:%l:%c:%m,%f:%l:%m
     let g:ackprg = 'rg --vimgrep --no-heading'
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    "let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
   endif
 
 
@@ -418,7 +419,7 @@ call plug#end()
     " quick-paste last yanked text
     noremap ; "0p
 
-    nnoremap ,v :CtrlPMRU<CR>
+    nnoremap ,v :LeaderfMru<CR>
 
     " bind K to search grep word under the cursor
     nnoremap K :Ack! <cword><CR>
