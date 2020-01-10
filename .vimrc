@@ -219,7 +219,7 @@ call plug#begin('~/.vim/plugged')
     let g:Lf_PreviewInPopup = 1
     nmap ,f :Leaderf file<cr>
     nmap <c-p> :Leaderf file<cr>
-    nmap <c-o> :Leaderf mru<cr>
+    nmap <c-o> :Leaderf! mru<cr>
 
     let g:Lf_DefaultMode = 'NameOnly'
 
