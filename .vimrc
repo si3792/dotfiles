@@ -18,10 +18,6 @@ call plug#begin('~/.vim/plugged')
     " themes
     Plug 'morhetz/gruvbox'
     Plug 'sheerun/vim-polyglot'
-    "let g:polyglot_disabled = ['typescript', 'javascript']
-
-    Plug 'jelera/vim-javascript-syntax'
-    Plug 'herringtondarkholme/yats.vim'
     Plug 'othree/javascript-libraries-syntax.vim'
     Plug 'ianks/vim-tsx'
 
@@ -82,8 +78,8 @@ call plug#begin('~/.vim/plugged')
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
     " Use `[c` and `]c` to navigate diagnostics
-    nmap <silent> <space><left> <Plug>(coc-diagnostic-prev)
-    nmap <silent> <space><right> <Plug>(coc-diagnostic-next)
+    nmap <silent> <space>j <Plug>(coc-diagnostic-prev)
+    nmap <silent> <space>k <Plug>(coc-diagnostic-next)
 
     " Use space-t to use list plugin
     nmap <silent> <space>t :CocList<cr>
@@ -110,10 +106,14 @@ call plug#begin('~/.vim/plugged')
 
     " Remap for rename current word
     nmap ,r <Plug>(coc-rename)
+    nmap ,R <Plug>(coc-refactor)
 
     " Remap for format selected region
     xmap <space>f  <Plug>(coc-format-selected)
     nmap <space>f  <Plug>(coc-format)
+
+    xmap if <Plug>(coc-funcobj-i)
+    xmap af <Plug>(coc-funcobj-a)
 
     augroup mygroup
       autocmd!
