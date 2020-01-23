@@ -45,6 +45,14 @@ call plug#begin('~/.vim/plugged')
     "highlight GitGutterChange  ctermfg=3 ctermbg=180
     "highlight GitGutterDelete  ctermfg=1 ctermbg=180
 
+    Plug 'OmniSharp/omnisharp-vim'
+
+    autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
+    autocmd FileType cs nnoremap <buffer> ,d :OmniSharpGotoDefinition<CR>
+    autocmd FileType cs nnoremap <buffer> ,i :OmniSharpFindImplementations<CR>
+    autocmd FileType cs nnoremap <buffer> <space>o :OmniSharpFindSymbol<CR>
+    autocmd FileType cs nnoremap <buffer> ,6 :OmniSharpFindUsages<CR>
+    
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     let g:coc_global_extensions = [ 'coc-tslint', 'coc-tslint-plugin', 'coc-emmet', 'coc-git', 'coc-vimlsp',
       \ 'coc-lists', 'coc-snippets', 'coc-highlight', 'coc-vetur', 'coc-html', 'coc-tsserver',
@@ -78,8 +86,8 @@ call plug#begin('~/.vim/plugged')
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
     " Use `[c` and `]c` to navigate diagnostics
-    nmap <silent> <space>j <Plug>(coc-diagnostic-prev)
-    nmap <silent> <space>k <Plug>(coc-diagnostic-next)
+    nmap <silent> <space>j <Plug>(coc-diagnostic-next)
+    nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
 
     " Use space-t to use list plugin
     nmap <silent> <space>t :CocList<cr>
