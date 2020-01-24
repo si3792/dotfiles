@@ -21,6 +21,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'othree/javascript-libraries-syntax.vim'
     Plug 'ianks/vim-tsx'
 
+    " Disable fucking bullshit markdown conceal shit 
+    let g:vim_markdown_folding_disabled = 1
+    let g:vim_markdown_conceal = 0
+    let g:vim_markdown_conceal_code_blocks = 0
+
     Plug 'sbdchd/neoformat'
 
     ""match tags and navigate through %
